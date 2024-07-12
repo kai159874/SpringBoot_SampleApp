@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+</style>
+</head>
+<body>
+	
+	<h1>Hello Page</h1>
+	<table border="1">
+		<form method="post" action="/" th:object="${formModel}">
+			<tr>
+				<td><label for="name">名前</label></td>
+				<td><label type="text" name="name" th:value="*{name}" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit"/></td>
+			</tr>
+		</form>
+	</table>
+	<hr/>
+	<table border="1">
+		<tr>
+			<th>ID</th><th>名前</th>
+		</tr>
+		<tr th:each="obj : ${data}">
+			<td th:text="${obj.id}"></td>
+			<td th:text="${obj.name}"></td>
+		</tr>
+	</table>
+</body>
+</html>
